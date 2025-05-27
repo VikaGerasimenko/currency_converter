@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Конвертер</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 20px auto; padding: 20px }
+        input, select { margin: 5px; padding: 5px }
+    </style>
+</head>
+<body>
+    <h2>Конвертер валют</h2>
+    <form method="POST">
+        <input type="number" step="0.01" name="amount" required placeholder="Сумма">
+        <select name="from_curr">
+            {% for c in currencies %}<option>{{ c }}</option>{% endfor %}
+        </select>
+        →
+        <select name="to_curr">
+            {% for c in currencies %}<option>{{ c }}</option>{% endfor %}
+        </select>
+        <button type="submit">Конвертировать</button>
+    </form>
+
+    {% if result %}<h3>{{ result }}</h3>{% endif %}
+</body>
+</html>
